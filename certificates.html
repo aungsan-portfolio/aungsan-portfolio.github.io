@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Certificates | Aung San</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Main Theme Style (Same as your Home Page) */
+        body {
+            background: #0b0b0d;
+            color: #f5f5f5;
+            font-family: sans-serif;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            color: #f0b13e;
+            margin-bottom: 2rem;
+        }
+
+        /* Gallery Grid Design */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: #1f1f24;
+            border: 1px solid #2b2b33;
+            border-radius: 12px;
+            padding: 10px;
+            transition: transform 0.2s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: #f0b13e;
+        }
+
+        .cert-card img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .cert-title {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #b3b3c0;
+        }
+
+        /* Back Button */
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 10px 20px;
+            background: #1f1f24;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 99px;
+            border: 1px solid #333;
+        }
+
+        .btn-back:hover {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" class="btn-back">← Back to Home</a>
+
+    <h1>My Certificates Collection</h1>
+
+    <div class="gallery">
+
+        <div class="cert-card">
+            <img src="ai_cert.jpg" alt="AI For Everyone">
+            <div class="cert-title">AI For Everyone (DeepLearning.AI)</div>
+        </div>
+
+        <div class="cert-card">
+            <img src="google_cert.jpg" alt="Google Prompt Engineering">
+            <div class="cert-title">Prompt Engineering (Google)</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

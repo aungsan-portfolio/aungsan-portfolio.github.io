@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Aung San | Digital Marketing Portfolio</title>
+  <meta name="description"
+    content="Aung San - Digital Marketing Freelancer based in Chiang Mai. Specializing in Meta Ads, AI Content Creation, and Python Automation for small businesses." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --bg-alt: #151518;
+      --card: #1f1f24;
+      --text: #f5f5f5;
+      --muted: #b3b3c0;
+      --accent: #f0b13e;
+      --accent2: #d94b4b;
+      --border: #2b2b33;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --radius-pill: 999px;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #22222b 0, #060608 45%, #020204 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent2);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page-wrap {
+      min-height: 100vh;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom,
+          rgba(5, 5, 8, 0.96),
+          rgba(5, 5, 8, 0.9),
+          rgba(5, 5, 8, 0.75));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.7rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 40%;
+      background: radial-gradient(circle at 20% 0, #ffe8b0, #f0b13e 40%, #8b3f10 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1c1308;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18), 0 12px 28px rgba(0, 0, 0, 0.5);
+    }
+
+    .brand-text-main {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-text-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      font-size: 0.8rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-pill);
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: all 0.18s ease-out;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--text);
+      border-color: rgba(240, 177, 62, 0.6);
+      background: radial-gradient(circle at top left, rgba(240, 177, 62, 0.25), transparent 55%);
+    }
+
+    nav a.active {
+      color: #120c06;
+      background: linear-gradient(120deg, #f0b13e, #d94b4b);
+      border-color: rgba(0, 0, 0, 0.54);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 14px 30px rgba(0, 0, 0, 0.6);
+      font-weight: 600;
+    }
+
+    /* LAYOUT COMMON */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.2rem 1.4rem 4rem;
+    }
+
+    section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .section-heading p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 700px) {
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #262630, #14141a);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right,
+          rgba(240, 177, 62, 0.12),
+          transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+
+    .card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .card h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .card p {
+      font-size: 0.87rem;
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.13rem 0.6rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.7rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 0.1rem 0.55rem;
+      font-size: 0.72rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: var(--muted);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.1rem;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      padding: 0.55rem 1.3rem;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition: all 0.18s ease-out;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, #f0b13e, #d94b4b);
+      color: #120c06;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.85);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.22);
+      color: var(--text);
+      background: rgba(6, 6, 10, 0.8);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* HERO */
+    #home {
+      padding-top: 2.6rem;
+      padding-bottom: 2.6rem;
+    }
+
+    .hero {
+      display: grid;
+      gap: 1.9rem;
+    }
+
+    @media (min-width: 780px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        align-items: center;
+      }
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.0rem, 4vw, 2.55rem);
+      line-height: 1.12;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.02rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--accent);
+    }
+
+    .hero-photo-wrap {
+      justify-self: center;
+      position: relative;
+      max-width: 320px;
+    }
+
+    .hero-photo-bg {
+      position: absolute;
+      inset: -18%;
+      background:
+        radial-gradient(circle at 20% 0, rgba(240, 177, 62, 0.28), transparent 55%),
+        radial-gradient(circle at 80% 100%, rgba(217, 75, 75, 0.32), transparent 60%);
+      filter: blur(16px);
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    .hero-photo {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.9);
+      background: #1b1410;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .hero-chip {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -0.8rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.7rem;
+      background: rgba(3, 3, 5, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--muted);
+      display: inline-flex;
+      gap: 0.35rem;
+      align-items: center;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.85);
+    }
+
+    .hero-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #14e06e;
+      box-shadow: 0 0 0 4px rgba(20, 224, 110, 0.3);
+    }
+
+    /* ABOUT */
+    .about-body {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 780px) {
+      .about-body {
+        grid-template-columns: 1.4fr 1fr;
+      }
+    }
+
+    .about-text p {
+      font-size: 0.93rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .about-list h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-list ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .about-list li {
+      margin-bottom: 0.3rem;
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .about-dot {
+      width: 6px;
+      height: 6px;
+      margin-top: 0.42rem;
+      border-radius: 50%;
+      background: var(--accent2);
+    }
+
+    /* COMMON LISTS */
+    .card ul {
+      list-style: none;
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding-left: 0;
+    }
+
+    .card ul li {
+      margin-bottom: 0.25rem;
+      position: relative;
+      padding-left: 0.9rem;
+    }
+
+    .card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.85rem;
+      top: 0.05rem;
+    }
+
+    .card-footer {
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-mini {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(0, 0, 0, 0.65);
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    /* LEARNING NOTES */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .filter-pill {
+      font-size: 0.75rem;
+      padding: 0.28rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(7, 7, 11, 0.95);
+      color: var(--muted);
+    }
+
+    .filter-pill--active {
+      background: linear-gradient(120deg, rgba(240, 177, 62, 0.9), rgba(217, 75, 75, 0.9));
+      color: #120c06;
+      border-color: rgba(0, 0, 0, 0.85);
+      font-weight: 600;
+    }
+
+    .note-meta {
+      margin-top: 0.55rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 780px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-list span {
+      display: inline-block;
+      min-width: 90px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    form {
+      background: radial-gradient(circle at top left, #262630, #14141a);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.1rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+      color: var(--muted);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.55rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(6, 6, 10, 0.9);
+      color: var(--text);
+      font-size: 0.85rem;
+      margin-bottom: 0.65rem;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(240, 177, 62, 0.4);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1.4rem 1.4rem 2rem;
+      background: #040406;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 480px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        justify-content: flex-start;
+      }
+
+      .hero-meta {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+    <header>
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-logo">AS</div>
+          <div>
+            <div class="brand-text-main">AungSan_AI_CreativeLab</div>
+            <div class="brand-text-sub">AI-Powered Digital Marketing</div>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#certificates" class="nav-link">Certificates</a></li>
+            <li><a href="#notes" class="nav-link">Learning Notes</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home">
+        <div class="hero">
+          <div>
+            <div class="hero-kicker">Freelancer · Media Buyer · Builder</div>
+            <h1 class="hero-title">Aung San</h1>
+            <p class="hero-subtitle">
+              Digital marketing freelancer specializing in Meta Ads, AI-powered content creation,
+              and practical campaigns for businesses.
+            </p>
+            <p class="hero-meta">
+              <strong>Digital Marketing & AI Specialist</strong> · Based in Chiang Mai, Thailand ·
+              Available for remote projects.
+            </p>
+            <div class="btn-row">
+              <a href="#contact" class="btn btn-primary">
+                Hire Me
+              </a>
+              <a href="#projects" class="btn btn-ghost">
+                View My Projects
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-photo-wrap">
+            <div class="hero-photo-bg"></div>
+            <div class="hero-photo">
+              <img src="AS.jpg" alt="Aung San portrait" />
+              <div class="hero-chip">
+                <span class="hero-chip-dot"></span>
+                <span>Meta Ads · AI Content · Growth</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-heading">
+          <h2>About</h2>
+          <p>
+            Who I am, how I work, and what kind of marketing systems I build.
+          </p>
+        </div>
+        <div class="about-body">
+          <div class="about-text">
+            <p>
+              I’m a digital marketing freelancer focused on <strong>Meta Ads</strong>, AI-assisted content
+              creation, and practical marketing systems for small businesses. My main goal is simple:
+              run campaigns that bring real messages, real customers, and clear data — not just “reach”.
+            </p>
+            <p>
+              I work heavily with AI tools like <strong>ChatGPT, Canva, CapCut AI</strong> to create stronger creatives
+              faster. I test hooks, audiences, and formats, then keep what works and cut what doesn’t.
+            </p>
+            <p>
+              On the technical side, I’m learning <strong>Python</strong> to build tools
+              for targeting lists, content planners, and simple dashboards that make marketing data easier to
+              understand.
+            </p>
+          </div>
+          <div class="about-list card">
+            <h3>Current Focus</h3>
+            <ul>
+              <li>
+                <span class="about-dot"></span>
+                <span>Optimizing Meta ad campaigns for service-based businesses.</span>
+              </li>
+              <li>
+                <span class="about-dot"></span>
+                <span>Using AI to generate high-converting scripts and visuals.</span>
+              </li>
+              <li>
+                <span class="about-dot"></span>
+                <span>Developing Python scripts for marketing automation.</span>
+              </li>
+              <li>
+                <span class="about-dot"></span>
+                <span>Documenting experiments in my personal “playbook”.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-heading">
+          <h2>Skills</h2>
+          <p>
+            Core skills I use to plan, launch, and improve digital campaigns.
+          </p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="badge">Digital Marketing</div>
+            <h3>Meta Ads & Strategy</h3>
+            <ul>
+              <li>Facebook & Instagram ads setup, testing, and scaling.</li>
+              <li>Audience targeting for local and niche markets.</li>
+              <li>Funnel mapping and offer creation.</li>
+              <li>Data analysis (CPM, CTR, CPC, ROAS).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="badge">AI & Tools</div>
+            <h3>AI-First Workflow</h3>
+            <ul>
+              <li>ChatGPT for copywriting and campaign planning.</li>
+              <li>Video editing with CapCut AI & Veo-style workflows.</li>
+              <li>Graphic design with Canva.</li>
+              <li>Basic Python for data tasks and automation.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="badge">Content Creation</div>
+            <h3>Creative Strategy</h3>
+            <ul>
+              <li>Short-form video scripts (Reels/TikTok).</li>
+              <li>Hook development and caption writing.</li>
+              <li>Content series planning.</li>
+              <li>Brand messaging consistency.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="section-heading">
+          <h2>Services</h2>
+          <p>
+            How I can help your brand grow — from ads to automation.
+          </p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Meta Ads Management</h3>
+            <p>
+              Full-service ad management: precise targeting, ad set structuring, and continuous optimization based on
+              performance data.
+            </p>
+            <div class="card-footer">
+              <span>Ideal for: SMEs & Local Business</span>
+              <button class="btn-mini" type="button">Ads Strategy</button>
+            </div>
+          </div>
+          <div class="card">
+            <h3>AI Content Production</h3>
+            <p>
+              Generate weeks of content ideas, scripts, and visuals using AI tools, tailored to your brand voice and
+              audience.
+            </p>
+            <div class="card-footer">
+              <span>Ideal for: Creators & Brands</span>
+              <button class="btn-mini" type="button">Content Creation</button>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Marketing Systems</h3>
+            <p>
+              I build simple SOPs and systems so you can repeat successful campaigns without starting from scratch every
+              time.
+            </p>
+            <div class="card-footer">
+              <span>Ideal for: Teams</span>
+              <button class="btn-mini" type="button">Systems & SOPs</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-heading">
+          <h2>Projects</h2>
+          <p>
+            Selected work and experiments combining marketing strategy with AI tools.
+          </p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="badge">Client Work</div>
+            <h3>Education & Service Marketing</h3>
+            <p>
+              Managed Meta ad campaigns for a local center, utilizing AI-generated ad copy and targeted audience
+              segmentation to increase inquiries.
+            </p>
+            <div class="card-footer">
+              <span>Role: Media Buyer & Content</span>
+              <span class="tag">Meta Ads · Lead Gen</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="badge">R&D Lab</div>
+            <h3>AungSan_AI_CreativeLab</h3>
+            <p>
+              Personal research lab for testing new AI tools, building prompt libraries for marketers, and developing
+              Python scripts for ad data analysis.
+            </p>
+            <div class="card-footer">
+              <span>Role: Founder</span>
+              <span class="tag">Python · AI Research</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="badge">Content Strategy</div>
+            <h3>Short-Form Video Engine</h3>
+            <p>
+              Created a workflow to produce high-quality video scripts and captions at scale using custom AI prompts,
+              reducing production time by 50%.
+            </p>
+            <div class="card-footer">
+              <span>Role: Strategist</span>
+              <span class="tag">Workflow Automation</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="badge">Data Analytics</div>
+            <h3>Campaign Performance Tracker</h3>
+            <p>
+              Custom spreadsheet and Python tools to track key metrics (CPM, CTR, CPC) across multiple campaigns for
+              better decision making.
+            </p>
+            <div class="card-footer">
+              <span>Role: Analyst</span>
+              <span class="tag">Data Viz · Python</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="certificates">
+        <div class="section-heading">
+          <h2>Certificates & Learning</h2>
+          <li>Building reusable prompt libraries.</li>
+          <li>Testing LLM capabilities for business tasks.</li>
+          </ul>
+          <p class="card-footer">
+            <span>Focus: Efficiency & Output Quality.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>Python for Beginners</h3>
+          <ul>
+            <li>Python syntax, data structures, and logic.</li>
+            <li>File handling and basic automation scripts.</li>
+            <li>Data processing for marketing reports.</li>
+          </ul>
+          <p class="card-footer">
+            <span>Focus: Marketing Automation.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>Digital Marketing Strategy</h3>
+          <ul>
+            <li>Meta Ads Manager mastery.</li>
+            <li>Social media content strategy.</li>
+            <li>Funnel optimization and analytics.</li>
+          </ul>
+          <p class="card-footer">
+            <span>Focus: ROI & Growth.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>Lifelong Learning</h3>
+          <p>
+            I believe in testing new technologies immediately. Every project is an opportunity to learn and refine my
+            methods.
+          </p>
+          <p class="card-footer">
+            <span>Mindset: Growth.</span>
+          </p>
+        </div>
+  </div>
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="certificates.html" class="btn btn-primary">
+      View All Certificates Gallery →
+    </a>
+  </div>
+  </section>
+
+  <section id="notes">
+    <div class="section-heading">
+      <h2>Learning Notes</h2>
+      <p>
+        A public knowledge base of my studies and campaign experiments.
+      </p>
+    </div>
+    <div class="filter-row">
+      <span class="filter-pill filter-pill--active">All</span>
+      <span class="filter-pill">Python</span>
+      <span class="filter-pill">AI</span>
+      <span class="filter-pill">Marketing</span>
+      <span class="filter-pill">Systems</span>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Python: Variables & Data Types</h3>
+        <p>
+          Summary of Python fundamentals including strings, integers, and lists, with examples relevant to data
+          handling.
+        </p>
+        <div class="note-meta">
+          <span class="tag">Python</span>
+          <span>Updated: 2025</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Mastering AI Prompts</h3>
+        <p>
+          Key principles for writing effective prompts: Context, Role, Task, and Constraints.
+        </p>
+        <div class="note-meta">
+          <span class="tag">AI</span>
+          <span>Updated: 2025</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Meta Ads Testing Framework</h3>
+        <p>
+          A structured approach to testing audiences and creatives to identify winners quickly and cost-effectively.
+        </p>
+        <div class="note-meta">
+          <span class="tag">Marketing</span>
+          <span>Updated: 2025</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>High-Converting Hooks</h3>
+        <p>
+          A collection of video and text hooks that have proven to stop the scroll in recent campaigns.
+        </p>
+        <div class="note-meta">
+          <span class="tag">Content</span>
+          <span>Updated: 2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-heading">
+      <h2>Contact</h2>
+      <p>
+        Ready to scale your business with Ads and AI? Let's talk.
+      </p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <ul class="contact-list">
+          <li><span>Phone:</span> +66 92 182 9288</li>
+          <li><span>LINE ID:</span> aungsan2791986</li>
+          <li>
+            <span>Facebook:</span>
+            <a href="https://www.facebook.com/profile.php?id=61579158587315" target="_blank" rel="noreferrer">
+              Aung San
+            </a>
+          </li>
+          <li><span>Email:</span> <a href="mailto:htinlinn27986@gmail.com">htinlinn27986@gmail.com</a></li>
+        </ul>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:0.6rem;">
+          I prefer to start with a short message to understand your needs. Feel free to reach out via LINE or Email.
+        </p>
+      </div>
+      <div>
+        <form action="https://formspree.io/f/xjkzbvjp" method="POST">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="How can I help you?" required></textarea>
+
+          <button type="submit" class="btn btn-primary" style="margin-top:0.4rem;width:100%;">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2025 Aung San – AungSan_AI_CreativeLab</div>
+      <div class="footer-links">
+        <a href="https://www.facebook.com/profile.php?id=61579158587315" target="_blank" rel="noreferrer">
+          Facebook
+        </a>
+        <span>· LINE: aungsan2791986</span>
+        <a href="mailto:htinlinn27986@gmail.com">Email</a>
+        <a href="#home" id="back-to-top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <script>
+    // Smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href").slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", function () {
+      let current = "";
+      sections.forEach(function (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          current = section.id;
+        }
+      });
+      navLinks.forEach(function (link) {
+        link.classList.toggle("active", link.getAttribute("href") === "#" + current);
+      });
+    });
+  </script>
+</body>
+
+</html>
