@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    /* --- ORIGINAL DARK THEME CSS --- */
+    /* --- DESIGN SYSTEM --- */
     :root {
       --bg: #0b0b0d;
       --bg-alt: #151518;
@@ -26,11 +26,7 @@
       --max-width: 1100px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -40,357 +36,92 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
+    a { color: var(--accent); text-decoration: none; transition: all 0.2s ease; }
+    a:hover { color: var(--accent2); }
 
-    a:hover {
-      color: var(--accent2);
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .page-wrap {
-      min-height: 100vh;
-    }
+    .page-wrap { min-height: 100vh; }
 
     /* NAVBAR */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(5, 5, 8, 0.96), rgba(5, 5, 8, 0.9), rgba(5, 5, 8, 0.75));
+      position: sticky; top: 0; z-index: 999; backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(5, 5, 8, 0.96), rgba(5, 5, 8, 0.75));
       border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.7rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      max-width: var(--max-width); margin: 0 auto; padding: 0.7rem 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
     .brand-logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 40%;
+      width: 34px; height: 34px; border-radius: 40%;
       background: radial-gradient(circle at 20% 0, #ffe8b0, #f0b13e 40%, #8b3f10 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1c1308;
-      font-weight: 800;
-      font-size: 1.1rem;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18), 0 12px 28px rgba(0, 0, 0, 0.5);
+      display: flex; align-items: center; justify-content: center;
+      color: #1c1308; font-weight: 800; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
     }
 
-    .brand-text-main {
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
+    nav ul { list-style: none; display: flex; gap: 0.5rem; }
+    nav a { font-size: 0.8rem; padding: 0.45rem 0.85rem; border-radius: var(--radius-pill); color: var(--muted); }
+    nav a.active, nav a:hover { color: var(--text); background: rgba(240, 177, 62, 0.15); }
 
-    .brand-text-sub {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
+    /* LAYOUT */
+    main { max-width: var(--max-width); margin: 0 auto; padding: 2.2rem 1.4rem 4rem; }
+    section { padding: 4rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: flex-end;
-    }
-
-    nav a {
-      font-size: 0.8rem;
-      padding: 0.45rem 0.85rem;
-      border-radius: var(--radius-pill);
-      color: var(--muted);
-      border: 1px solid transparent;
-    }
-
-    nav a:hover,
-    nav a:focus-visible {
-      color: var(--text);
-      border-color: rgba(240, 177, 62, 0.6);
-      background: radial-gradient(circle at top left, rgba(240, 177, 62, 0.25), transparent 55%);
-    }
-
-    nav a.active {
-      color: #120c06;
-      background: linear-gradient(120deg, #f0b13e, #d94b4b);
-      border-color: rgba(0, 0, 0, 0.54);
-      font-weight: 600;
-    }
-
-    /* LAYOUT COMMON */
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2.2rem 1.4rem 4rem;
-    }
-
-    section {
-      padding: 3rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
+    .section-heading { margin-bottom: 2.5rem; }
     .section-heading h2 {
-      font-size: 1.6rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-weight: 700;
+      font-size: 1.8rem; letter-spacing: 0.06em; text-transform: uppercase;
       background: linear-gradient(to right, #fff, #b3b3c0);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
-    .grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 700px) {
-      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .grid { display: grid; gap: 1.5rem; }
+    @media (min-width: 768px) {
+      .grid-2 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      .grid-4 { grid-template-columns: repeat(4, 1fr); }
     }
 
     /* CARDS */
     .card {
       background: radial-gradient(circle at top left, #262630, #14141a);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      border-radius: var(--radius-lg); border: 1px solid var(--border);
+      padding: 1.5rem; box-shadow: var(--shadow-soft); position: relative;
     }
-    
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(240, 177, 62, 0.3);
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(240, 177, 62, 0.12), transparent 55%);
-      opacity: 0.7;
-      pointer-events: none;
-      mix-blend-mode: soft-light;
-    }
-
-    .card>* { position: relative; z-index: 1; }
-
-    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #fff; }
-    .card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .card:hover { transform: translateY(-4px); border-color: rgba(240, 177, 62, 0.4); transition: 0.3s; }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.2rem 0.7rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.7rem;
-      background: var(--accent);
-      color: #000;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
+      display: inline-block; padding: 0.2rem 0.7rem; border-radius: var(--radius-pill);
+      font-size: 0.7rem; background: var(--accent); color: #000; font-weight: 700; margin-bottom: 1rem;
     }
 
     .tag {
-      display: inline-flex;
-      padding: 0.15rem 0.6rem;
-      font-size: 0.75rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--muted);
-      background: rgba(0,0,0,0.3);
+      display: inline-block; padding: 0.15rem 0.6rem; font-size: 0.75rem;
+      border-radius: var(--radius-pill); border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--muted); background: rgba(0,0,0,0.3); margin-right: 0.3rem;
+    }
+
+    /* HERO */
+    .hero { display: grid; gap: 2rem; align-items: center; }
+    @media (min-width: 780px) { .hero { grid-template-columns: 1.2fr 0.8fr; } }
+    .hero-title { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; margin-bottom: 1rem; }
+    .hero-subtitle { font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem; max-width: 600px; }
+
+    .hero-photo {
+      width: 100%; max-width: 320px; border-radius: 30px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.8);
     }
 
     /* BUTTONS */
     .btn {
-      border-radius: var(--radius-pill);
-      padding: 0.6rem 1.4rem;
-      font-size: 0.9rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      transition: all 0.18s ease-out;
-      text-decoration: none;
-      font-weight: 600;
+      padding: 0.7rem 1.5rem; border-radius: var(--radius-pill); font-weight: 600;
+      display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;
     }
+    .btn-primary { background: linear-gradient(120deg, #f0b13e, #d94b4b); color: #120c06; }
+    .btn-ghost { border: 1px solid rgba(255,255,255,0.2); color: #fff; }
 
-    .btn-primary {
-      background: linear-gradient(120deg, #f0b13e, #d94b4b);
-      color: #120c06;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.85);
-      color: #000;
-    }
-
-    .btn-ghost {
-      border-color: rgba(255, 255, 255, 0.2);
-      color: var(--text);
-      background: rgba(255,255,255,0.05);
-    }
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-    }
-
-    /* HERO */
-    #home { padding-top: 4rem; padding-bottom: 4rem; }
-    
-    .hero {
-      display: grid;
-      gap: 2rem;
-    }
-
-    @media (min-width: 780px) {
-      .hero { grid-template-columns: 1.3fr 1fr; align-items: center; }
-    }
-
-    .hero-kicker {
-      font-size: 0.85rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-      font-weight: 700;
-    }
-
-    .hero-title {
-      font-size: clamp(2.2rem, 5vw, 3rem);
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 550px;
-      margin-bottom: 1.5rem;
-    }
-
-    /* --- IMAGE FIXES --- */
-    .hero-photo-wrap {
-      justify-self: center;
-      position: relative;
-      width: 100%;
-      max-width: 340px;
-      margin: 0 auto;
-    }
-
-    .hero-photo-bg {
-      position: absolute;
-      inset: -15%;
-      background:
-        radial-gradient(circle at 20% 0, rgba(240, 177, 62, 0.28), transparent 55%),
-        radial-gradient(circle at 80% 100%, rgba(217, 75, 75, 0.32), transparent 60%);
-      filter: blur(20px);
-      opacity: 0.8;
-      z-index: 0;
-    }
-
-    .hero-photo {
-      position: relative;
-      border-radius: 30px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-      background: #1b1410;
-      z-index: 1;
-    }
-    
-    .hero-photo img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-    }
-
-    /* CERTIFICATES */
-    .cert-icon {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
-    
-    .card-footer {
-      margin-top: 1rem;
-      padding-top: 0.8rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* CONTACT FORM */
-    form {
-      background: #151518;
-      padding: 1.5rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.7rem;
-      margin-bottom: 1rem;
-      background: #0b0b0d;
-      border: 1px solid rgba(255,255,255,0.1);
-      color: #fff;
-      border-radius: 8px;
-    }
-    input:focus, textarea:focus {
-      border-color: var(--accent);
-      outline: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
+    footer { text-align: center; padding: 3rem 1rem; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.05); }
   </style>
 </head>
 
@@ -403,16 +134,15 @@
           <div class="brand-logo">AS</div>
           <div>
             <div class="brand-text-main">AungSan_AI</div>
-            <div class="brand-text-sub">AI-Native Developer & Vibe Coder</div>
+            <div class="brand-text-sub">AI-Native Developer</div>
           </div>
         </div>
         <nav>
           <ul>
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#certificates" class="nav-link">Certificates</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -423,21 +153,70 @@
       <section id="home">
         <div class="hero">
           <div>
-            <div class="hero-kicker">AI Orchestration · Vibe Coding · Prompt Engineering</div>
-            <h1 class="hero-title">AI-Native Developer & Business Orchestrator</h1>
+            <div style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 2px;">AI ORCHESTRATION & VIBE CODING</div>
+            <h1 class="hero-title">Building the Future with Intent & AI.</h1>
             <p class="hero-subtitle">
-              I don't just write code; I architect solutions. Specializing in **Vibe Coding**—leveraging advanced LLMs to build complex platforms, automate workflows, and solve business challenges with unprecedented speed and logic.
+              ကျွန်တော်က AI ကို အသုံးချပြီး complex ဖြစ်တဲ့ software တွေနဲ့ automation system တွေကို တည်ဆောက်တဲ့ <b>AI-Native Developer</b> တစ်ယောက်ဖြစ်ပါတယ်။ Code တစ်လုံးချင်း ရိုက်မနေတော့ဘဲ AI ရဲ့ စွမ်းအားကို အသုံးချပြီး ပိုမိုမြန်ဆန်၊ ပိုမိုကောင်းမွန်တဲ့ ရလဒ်တွေကို ဖော်ဆောင်ပေးပါတယ်။
             </p>
             <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-              <a href="#projects" class="btn btn-primary">See AI Projects</a>
-              <a href="#contact" class="btn btn-ghost">Let's Collaborate</a>
+              <a href="#projects" class="btn btn-primary">See Featured Work</a>
+              <a href="mailto:AungSan20179@gmail.com" class="btn btn-ghost">Hire Me</a>
+            </div>
+          </div>
+          <div class="hero-photo" style="margin: 0 auto;">
+            <img src="AS.jpg" alt="Aung San" style="width: 100%; display: block;">
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-heading">
+          <h2>Featured Enterprise Project</h2>
+        </div>
+        
+        <div class="card" style="border: 2px solid var(--accent); display: grid; gap: 2rem; grid-template-columns: 1fr;">
+          <div style="display: flex; flex-direction: column; justify-content: center;">
+            <div class="badge">TOP SHOWCASE</div>
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">GoTravel Asia 🌏</h3>
+            <p style="font-size: 1.1rem; color: #fff; margin-bottom: 1rem;">
+              <b>The AI-Native Enterprise Solution:</b> A high-performance travel affiliate aggregator.
+            </p>
+            <p style="margin-bottom: 1.5rem; color: var(--muted);">
+              ဒီ project ဟာ Vibe Coding workflow ရဲ့ အကောင်းဆုံး ရလဒ်တစ်ခုဖြစ်ပါတယ်။ Vercel ပေါ်မှာ <b>Monolithic Serverless Pattern</b> ကို အသုံးပြုပြီး Agoda, Klook နဲ့ Expedia လိုမျိုး API တွေကို AI orchestration နဲ့ ချိတ်ဆက်ထားတာပါ။ UI/UX ပိုင်းမှာလည်း MutationObservers တွေ သုံးပြီး dynamic ဖြစ်အောင် ဖန်တီးထားပါတယ်။
+            </p>
+            
+            <div style="margin-bottom: 2rem;">
+              <span class="tag">Serverless (Vercel)</span>
+              <span class="tag">API Integration</span>
+              <span class="tag">AI-Augmented UX</span>
+              <span class="tag">Python Scraper</span>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <a href="https://gotravel-asia.vercel.app" target="_blank" class="btn btn-primary">Launch Project 🔗</a>
+              <a href="https://github.com/aungsan-portfolio" target="_blank" style="font-size: 0.9rem; font-weight: 600;">GitHub Repository →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-2" style="margin-top: 1.5rem;">
+          <div class="card">
+            <div class="badge">MACHINE LEARNING</div>
+            <h3>Singapore Toto AI 🎰</h3>
+            <p>XGBoost model ကို AI နဲ့ ပူးပေါင်းပြီး lottery prediction ပြုလုပ်ပေးတဲ့ software ဖြစ်ပါတယ်။ Data processing ကနေ predictive logic အထိ AI ကို conductor တစ်ယောက်လို ခိုင်းစေပြီး တည်ဆောက်ခဲ့တာပါ။</p>
+            <div style="margin-top: 1rem;">
+              <span class="tag">Python</span>
+              <span class="tag">XGBoost</span>
             </div>
           </div>
 
-          <div class="hero-photo-wrap">
-            <div class="hero-photo-bg"></div>
-            <div class="hero-photo">
-              <img src="AS.jpg" alt="Aung San Portrait" />
+          <div class="card">
+            <div class="badge">BUSINESS AUTOMATION</div>
+            <h3>Xiang Xiang Tech Hub 🧪</h3>
+            <p>ဘာသာစကားသင်တန်းကျောင်းအတွက် Course management နဲ့ automated marketing video production system တွေကို AI workflows တွေနဲ့ စီမံခန့်ခွဲပေးထားပါတယ်။</p>
+            <div style="margin-top: 1rem;">
+              <span class="tag">Automation</span>
+              <span class="tag">AI Video Gen</span>
             </div>
           </div>
         </div>
@@ -446,115 +225,50 @@
       <section id="skills">
         <div class="section-heading">
           <h2>Core Competencies</h2>
-          <p>My unique toolkit for the AI-first era.</p>
         </div>
         <div class="grid grid-4">
-          
-          <div class="card" style="text-align:center;">
-            <div style="font-size:2rem; margin-bottom:0.5rem;">🎹</div>
+          <div class="card" style="text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎹</div>
             <h3>Vibe Coding</h3>
-            <p>Directing AI models to generate production-ready software through high-level logic and intent.</p>
+            <p>Directing AI to build complex software through high-level logic.</p>
           </div>
-
-          <div class="card" style="text-align:center;">
-            <div style="font-size:2rem; margin-bottom:0.5rem;">🇲🇲</div>
+          <div class="card" style="text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🇲🇲</div>
             <h3>Burmese Localization</h3>
-            <p>Expert in cultural nuances, grammar, and linguistic precision for the Myanmar market.</p>
+            <p>Expert in cultural nuances and native linguistic quality assurance.</p>
           </div>
-
-          <div class="card" style="text-align:center;">
-            <div style="font-size:2rem; margin-bottom:0.5rem;">⚡</div>
+          <div class="card" style="text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
             <h3>Rapid Prototyping</h3>
-            <p>Turning complex business ideas into functional MVPs (like GoTravel Asia) in record time.</p>
+            <p>Turning business ideas into functional MVPs in record time.</p>
           </div>
-
-          <div class="card" style="text-align:center;">
-            <div style="font-size:2rem; margin-bottom:0.5rem;">🐍</div>
-            <h3>AI-Assisted Python</h3>
-            <p>Orchestrating scripts for web scraping (Cloudscraper), automation, and ML (XGBoost).</p>
+          <div class="card" style="text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📊</div>
+            <h3>AI Data Analytics</h3>
+            <p>Orchestrating scripts for scraping and performance tracking.</p>
           </div>
-
-        </div>
-      </section>
-
-      <section id="projects">
-        <div class="section-heading">
-          <h2>Featured AI-Native Projects</h2>
-          <p>Evidence of AI orchestration in real-world scenarios.</p>
-        </div>
-        <div class="grid grid-2">
-          
-          <div class="card" style="border: 1px solid var(--accent);">
-            <div class="badge">FEATURED</div>
-            <h3>GoTravel Asia ✈️</h3>
-            <p>
-              <strong>AI Orchestration:</strong> A monolithic serverless travel affiliate platform built on Vercel. 
-            </p>
-            <p>
-              Architected entirely through AI collaboration to integrate complex travel APIs and dynamic UI logic without manual coding constraints.
-            </p>
-            <div class="card-footer">
-              <span class="tag">Vibe Coding</span>
-              <span class="tag">API Integration</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Singapore Toto AI 🎰</h3>
-            <p>
-              <strong>The ML Experiment:</strong> A Python-based software developed to predict lottery results using probability logic and XGBoost.
-            </p>
-            <p>
-              I acted as the <strong>Project Manager & Conductor</strong>, directing 3 different AI models to refine the data structures and predictive engine.
-            </p>
-            <div class="card-footer">
-              <span class="tag">XGBoost</span>
-              <a href="https://github.com/aungsan-portfolio/toto-lottery-prediction" target="_blank" style="font-weight:bold;">View on GitHub →</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Xiang Xiang Center Tech Hub 🧪</h3>
-            <p>
-              Managing business operations and marketing automation using custom-built AI workflows for course management and video advertising.
-            </p>
-            <div class="card-footer">
-              <span class="tag">Business Automation</span>
-              <span class="tag">AI Marketing</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Web Scraping Engine 📊</h3>
-            <p>
-              Custom-orchestrated Python scripts using Cloudscraper to bypass protection and collect real-time data for market analysis.
-            </p>
-            <div class="card-footer">
-              <span class="tag">Python</span>
-              <span class="tag">Data Mining</span>
-            </div>
-          </div>
-
         </div>
       </section>
 
       <section id="languages">
         <div class="section-heading">
-          <h2>Linguistic Proficiency</h2>
-          <p>Bridging global technology with local expertise.</p>
+          <h2>Language Proficiency</h2>
         </div>
         <div class="grid grid-3">
           <div class="card">
-            <h3>Burmese (Native)</h3>
-            <p>Native fluency with a deep focus on linguistic quality assurance and localization standards.</p>
+            <h3>Burmese</h3>
+            <div class="badge" style="background: #2b2b33; color: var(--accent);">NATIVE</div>
+            <p>Expert in Burmese grammar, modern usage, and digital localization.</p>
           </div>
           <div class="card">
-            <h3>English (Professional)</h3>
-            <p>Full professional proficiency for technical documentation, AI prompting, and business communication.</p>
+            <h3>English</h3>
+            <div class="badge" style="background: #2b2b33; color: var(--accent);">PROFESSIONAL</div>
+            <p>Full professional proficiency for technical prompting and business documentation.</p>
           </div>
           <div class="card">
-            <h3>Thai (Advanced)</h3>
-            <p>Highly proficient in professional and everyday communication, based in Chiang Mai.</p>
+            <h3>Thai</h3>
+            <div class="badge" style="background: #2b2b33; color: var(--accent);">ADVANCED</div>
+            <p>Highly proficient in professional communication, based in Chiang Mai.</p>
           </div>
         </div>
       </section>
@@ -562,31 +276,27 @@
       <section id="contact">
         <div class="section-heading">
           <h2>Let's Build the Future</h2>
-          <p>Ready to leverage AI-native workflows for your project?</p>
         </div>
         <div class="grid grid-2">
-          
           <div>
-            <p style="margin-bottom:1.5rem; color:var(--muted);">
-              Whether it's AI data annotation, localization, or building complex automation, I bring a unique blend of technical orchestration and native linguistic expertise.
+            <p style="margin-bottom: 1.5rem; color: var(--muted);">
+              Whether it's AI data annotation, localization, or complex automation, I bring a unique blend of technical orchestration and native linguistic expertise.
             </p>
-            <ul style="list-style:none; line-height:2;">
+            <ul style="list-style: none; line-height: 2.5;">
               <li><strong>📞 Phone:</strong> +66 92 182 9288</li>
               <li><strong>💬 LINE:</strong> aungsan2791986</li>
               <li><strong>📧 Email:</strong> <a href="mailto:AungSan20179@gmail.com">AungSan20179@gmail.com</a></li>
               <li><strong>📍 Location:</strong> Chiang Mai, Thailand / Remote</li>
             </ul>
           </div>
-
           <div>
-            <form action="https://formspree.io/f/xjkzbvjp" method="POST">
-              <input type="text" name="name" placeholder="Your Name" required>
-              <input type="email" name="email" placeholder="Your Email" required>
-              <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
-              <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+            <form action="https://formspree.io/f/xjkzbvjp" method="POST" style="background: var(--bg-alt); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+              <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: var(--bg); border: 1px solid var(--border); color: #fff; border-radius: 8px;">
+              <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: var(--bg); border: 1px solid var(--border); color: #fff; border-radius: 8px;">
+              <textarea name="message" rows="4" placeholder="How can I help you?" required style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: var(--bg); border: 1px solid var(--border); color: #fff; border-radius: 8px;"></textarea>
+              <button type="submit" class="btn btn-primary" style="width: 100%; border: none;">Send Message</button>
             </form>
           </div>
-
         </div>
       </section>
 
@@ -594,21 +304,17 @@
 
     <footer>
       <p>© 2026 Aung San | AI-Native Developer & Orchestrator</p>
-      <p style="margin-top:0.5rem;">
-        <a href="#home">Back to Top ↑</a>
-      </p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem;">Built with AI Assistance · Designed for the Future</p>
     </footer>
 
   </div>
 
   <script>
-    // Smooth scroll
+    // Smooth scroll for nav links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
